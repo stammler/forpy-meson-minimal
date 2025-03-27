@@ -1,0 +1,15 @@
+[build-system]
+build-backend = "mesonpy"
+requires = ["meson-python", "numpy"]
+
+[project]
+name = "forpy_meson_minimal"
+version = "0.0.1"
+dependencies = ["numpy", "pytest"]
+authors = [
+    { name = "Sebastian.stammler", email = "sebastian.stammler@gmail.com" },
+]
+maintainers = [
+    { name = "Sebastian Stammler", email = "sebastian.stammler@gmail.com" },
+]
+description = "Minimum working example to call compiled Fortran code from Python using the Meson build system."
