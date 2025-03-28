@@ -1,4 +1,4 @@
-# ForPy Meson Minimal
+# Fortran-Python-Meson Minimal
 
 Minimum working example of a Python project utilizing compiled Fortran functions using the Meson build system. The minimum working example includes parallelization with OpenMP.
 
