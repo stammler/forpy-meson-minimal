@@ -19,10 +19,11 @@ module arithmetics
 
             C(:, :) = 0.d0
 
-            !$OMP PARALLEL SHARED(A, B, Na, Nb, Nc) PRIVATE(i, j, k) REDUCTION(+:C)
-            !$OMP DO
+            !$OMP PARALLEL PRIVATE(k)
+            !$OMP DO COLLAPSE(2) SCHEDULE(dynamic)
             do i=1, Nc
                 do j=1, Na
+                    !$OMP SIMD
                     do k=1, Nb
                         C(j, i) = C(j, i) + A(j, k)*B(k, i)
                     end do
