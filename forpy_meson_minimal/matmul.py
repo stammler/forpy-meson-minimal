@@ -1,7 +1,33 @@
+"""
+Module contains function to perform matrix-matrix and matrix-vector
+multiplications.
+"""
+
 from forpy_meson_minimal.fortran import arithmetics
 
 
 def matmul(A, B, block_size=None):
+    """
+    Function perform matrix-matrix or matrix-vector multiplication of
+    two-dimensional matrix A and one- or two-dimensional matrix/vector B.
+
+    C = A @ B
+
+    Parameters
+    ----------
+    A : array-like, shape (N, M)
+        Input matrix A
+    B : array-like, shape (M, K) or (M,)
+        Input matrix/vector B
+
+    Returns
+    -------
+    C : array-like, shape (N, K) or (M, )
+        Output matrix/vector C
+
+    """
+
+    # Input checks
     # Check for loop blocking
     if block_size is not None:
         if type(block_size) is not int:

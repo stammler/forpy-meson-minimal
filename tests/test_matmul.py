@@ -4,6 +4,7 @@ import pytest
 
 
 def test_matmul_input_block_size():
+    # Tests for correct catches of incorrect block sizes
     A = np.empty((1))
     B = np.empty((1, 2))
     with pytest.raises(RuntimeError):
@@ -15,6 +16,7 @@ def test_matmul_input_block_size():
 
 
 def test_matmul_input_shapes():
+    # Tests for correct catches of incorrect input shapes
     A = np.empty((1))
     B = np.empty((1, 2))
     with pytest.raises(RuntimeError):
@@ -30,6 +32,7 @@ def test_matmul_input_shapes():
 
 
 def test_matmul_shape_mismatch():
+    # Tests for correct catch of dimension mismatch in inputs
     A = np.empty((1, 2))
     B = np.empty((1, 2))
     with pytest.raises(RuntimeError):
@@ -37,6 +40,7 @@ def test_matmul_shape_mismatch():
 
 
 def test_matrix_vector_multiplication():
+    # Tests matrix-vector multiplication
     A = np.array(
         [
             [1.0, 2.0, 3.0],
@@ -54,6 +58,7 @@ def test_matrix_vector_multiplication():
 
 
 def test_matrix_matrix_multiplication():
+    # Tests matrix-matrix multiplication
     A = np.array(
         [
             [1.0, 2.0, 3.0],
@@ -83,6 +88,7 @@ def test_matrix_matrix_multiplication():
 
 
 def test_matrix_vector_multiplication_blocked():
+    # Tests matrix-vector multiplication with loop blocking
     A = np.array(
         [
             [1.0, 2.0, 3.0],
@@ -100,6 +106,7 @@ def test_matrix_vector_multiplication_blocked():
 
 
 def test_matrix_matrix_multiplication_blocked():
+    # Tests matrix-matrix multiplication with loop blocking
     A = np.array(
         [
             [1.0, 2.0, 3.0],
