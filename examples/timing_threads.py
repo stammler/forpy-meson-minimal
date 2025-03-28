@@ -2,11 +2,11 @@ import forpy_meson_minimal as forpy
 import numpy as np
 from timeit import default_timer
 
-N_threads = [2**i for i in range(4)]
+N_threads = [2**i for i in range(6)]
 
 rng = np.random.default_rng()
 
-K = 5_000
+K = 4_000
 L = 3_000
 M = 2_000
 

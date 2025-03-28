@@ -1,7 +1,14 @@
 from forpy_meson_minimal.fortran import arithmetics
 
 
-def matmul(A, B):
+def matmul(A, B, block_size=None):
+
+    # Check for loop blocking
+    if block_size is not None:
+        if type(block_size) is not int:
+            raise RuntimeError("block_size needs to be integer.")
+        if block_size < 1:
+            raise RuntimeError("block_size needs to be greater or equal 1.")
 
     # Input shapes
     if len(A.shape) != 2:
@@ -17,7 +24,10 @@ def matmul(A, B):
     B = B.reshape((B.shape[0], -1))
 
     # Compute the result
-    C = arithmetics.matmul(A, B)
+    if block_size is not None:
+        C = arithmetics.matmul_blocked(A, B, block_size)
+    else:
+        C = arithmetics.matmul(A, B)
 
     # Squeeze back to one dimension if possible
     C = C.squeeze()
