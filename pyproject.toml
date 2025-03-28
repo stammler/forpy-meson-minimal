@@ -4,12 +4,33 @@ requires = ["meson-python", "numpy"]
 
 [project]
 name = "forpy_meson_minimal"
+description = "Minimum working example of a Python project utilizing compiled Fortran functions using the Meson build system. The minimum working example includes parallelization with OpenMP."
 version = "1.0.0"
+
 dependencies = ["numpy", "pytest", "pytest-cov"]
+
 authors = [
     { name = "Sebastian.stammler", email = "sebastian.stammler@gmail.com" },
 ]
 maintainers = [
     { name = "Sebastian Stammler", email = "sebastian.stammler@gmail.com" },
 ]
-description = "Minimum working example to call compiled Fortran code from Python using the Meson build system."
+
+readme = {file = "README.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
+
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Fortran",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development",
+  "Topic :: Software Development :: Build Tools",
+]
+
+[project.urls]
+Homepage = "https://github.com/stammler/forpy-meson-minimal"
+Repository = "https://github.com/stammler/forpy-meson-minimal"
