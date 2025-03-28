@@ -4,8 +4,8 @@ requires = ["meson-python", "numpy"]
 
 [project]
 name = "forpy_meson_minimal"
-version = "0.0.1"
-dependencies = ["numpy", "pytest"]
+version = "1.0.0"
+dependencies = ["numpy", "pytest", "pytest-cov"]
 authors = [
     { name = "Sebastian.stammler", email = "sebastian.stammler@gmail.com" },
 ]
