@@ -28,4 +28,16 @@ module parallel
 
         end subroutine in_parallel_true
 
+        subroutine get_num_threads(N)
+
+            implicit none
+
+            integer, intent(out) :: N
+
+            !$OMP PARALLEL
+            N = omp_get_num_threads()
+            !$OMP END PARALLEL
+
+        end subroutine get_num_threads
+
 end module parallel
