@@ -26,7 +26,7 @@ print()
 
 for N in N_threads:
     forpy.fortran.parallel.set_num_threads(N)
-    print(f"# Running with {forpy.fortran.parallel.n_threads:d} threads...")
+    print(f"# Running with {forpy.fortran.parallel.n_threads:d} threads ...")
     t_start = default_timer()
     C = forpy.matmul(A, B)
     print(f"  - elapsed time: {default_timer() - t_start:.2f} s")
