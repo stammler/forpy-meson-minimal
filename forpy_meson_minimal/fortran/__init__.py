@@ -1,7 +1,10 @@
-from .arithmetics import arithmetics
-from .parallel import parallel
+from .fortran import arithmetics
+from .fortran import parallel
 
 __all__ = [
     "arithmetics",
     "parallel",
 ]
+
+# Initialize threads in parallel module
+parallel.init()

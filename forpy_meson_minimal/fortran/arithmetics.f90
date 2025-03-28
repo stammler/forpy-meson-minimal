@@ -6,6 +6,8 @@ module arithmetics
 
         subroutine matmul(A, B, C, Na, Nb, Nc)
 
+            use parallel, only: N_threads
+
             implicit none
 
             double precision, intent(in)  :: A(Na, Nb)
@@ -19,8 +21,8 @@ module arithmetics
 
             C(:, :) = 0.d0
 
-            !$OMP PARALLEL PRIVATE(k)
-            !$OMP DO COLLAPSE(2) SCHEDULE(dynamic)
+            !$OMP PARALLEL PRIVATE(k) NUM_THREADS(N_threads)
+            !$OMP DO COLLAPSE(2) SCHEDULE(static)
             do i=1, Nc
                 do j=1, Na
                     !$OMP SIMD

@@ -4,6 +4,8 @@ module parallel
 
     implicit none
 
+    integer :: N_threads
+
     contains
 
         subroutine in_parallel_false(flag)
@@ -28,16 +30,22 @@ module parallel
 
         end subroutine in_parallel_true
 
-        subroutine get_num_threads(N)
+        subroutine set_num_threads(N)
 
             implicit none
 
-            integer, intent(out) :: N
+            integer, intent(in) :: N
 
-            !$OMP PARALLEL
-            N = omp_get_num_threads()
-            !$OMP END PARALLEL
+            N_threads = min(N, omp_get_max_threads())
 
-        end subroutine get_num_threads
+        end subroutine set_num_threads
+
+        subroutine init()
+
+            implicit none
+
+            N_threads = omp_get_max_threads()
+
+        end subroutine init
 
 end module parallel
