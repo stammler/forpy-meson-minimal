@@ -138,3 +138,7 @@ Matrix-matrix multiplication:
 # Running with block_size = 512 ...
   - elapsed time: 3.25 s
 ```
+
+#### Acknowledgements
+
+I would like to thank the developers of NumPy for removing `distutils`. Without that decision I would have never had the pleasure of working with Meson.
