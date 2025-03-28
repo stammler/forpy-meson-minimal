@@ -19,6 +19,8 @@ module arithmetics
 
             C(:, :) = 0.d0
 
+            !$OMP PARALLEL SHARED(A, B, Na, Nb, Nc) PRIVATE(i, j, k) REDUCTION(+:C)
+            !$OMP DO
             do i=1, Nc
                 do j=1, Na
                     do k=1, Nb
@@ -26,6 +28,8 @@ module arithmetics
                     end do
                 end do
             end do
+            !$OMP END DO
+            !$OMP END PARALLEL
 
         end subroutine matmul
 
