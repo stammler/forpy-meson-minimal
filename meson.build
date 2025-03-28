@@ -4,6 +4,8 @@ project('forpy_meson_minimal', 'c',
 
 add_languages('fortran')
 
+omp_dep = dependency('openmp', required: true)
+
 py_mod = import('python')
 py = py_mod.find_installation(pure: false)
 py_dep = py.dependency()
