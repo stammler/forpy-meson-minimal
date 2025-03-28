@@ -39,17 +39,16 @@ def test_matmul_shape_mismatch():
 def test_matrix_vector_multiplication():
     A = np.array(
         [
-            [1., 2., 3.],
-            [4., 5., 6.],
-            [7., 8., 9.],
-
+            [1.0, 2.0, 3.0],
+            [4.0, 5.0, 6.0],
+            [7.0, 8.0, 9.0],
         ]
     )
-    B = np.array([1., 2., 3.])
-    C_res = np.array([14., 32., 50.])
+    B = np.array([1.0, 2.0, 3.0])
+    C_res = np.array([14.0, 32.0, 50.0])
     C = matmul(A, B)
     # Dimension check
-    assert C.shape == (3, )
+    assert C.shape == (3,)
     # Result check
     assert np.allclose(C, C_res)
 
@@ -57,24 +56,23 @@ def test_matrix_vector_multiplication():
 def test_matrix_matrix_multiplication():
     A = np.array(
         [
-            [1., 2., 3.],
-            [4., 5., 6.],
-            [7., 8., 9.],
-
+            [1.0, 2.0, 3.0],
+            [4.0, 5.0, 6.0],
+            [7.0, 8.0, 9.0],
         ]
     )
     B = np.array(
         [
-            [1., 2.],
-            [3., 4.],
-            [5., 6.],
+            [1.0, 2.0],
+            [3.0, 4.0],
+            [5.0, 6.0],
         ]
     )
     C_res = np.array(
         [
-            [22.,  28.],
-            [49.,  64.],
-            [76., 100.],
+            [22.0, 28.0],
+            [49.0, 64.0],
+            [76.0, 100.0],
         ]
     )
     C = matmul(A, B)
@@ -83,20 +81,20 @@ def test_matrix_matrix_multiplication():
     # Result check
     assert np.allclose(C, C_res)
 
+
 def test_matrix_vector_multiplication_blocked():
     A = np.array(
         [
-            [1., 2., 3.],
-            [4., 5., 6.],
-            [7., 8., 9.],
-
+            [1.0, 2.0, 3.0],
+            [4.0, 5.0, 6.0],
+            [7.0, 8.0, 9.0],
         ]
     )
-    B = np.array([1., 2., 3.])
-    C_res = np.array([14., 32., 50.])
+    B = np.array([1.0, 2.0, 3.0])
+    C_res = np.array([14.0, 32.0, 50.0])
     C = matmul(A, B, block_size=32)
     # Dimension check
-    assert C.shape == (3, )
+    assert C.shape == (3,)
     # Result check
     assert np.allclose(C, C_res)
 
@@ -104,24 +102,23 @@ def test_matrix_vector_multiplication_blocked():
 def test_matrix_matrix_multiplication_blocked():
     A = np.array(
         [
-            [1., 2., 3.],
-            [4., 5., 6.],
-            [7., 8., 9.],
-
+            [1.0, 2.0, 3.0],
+            [4.0, 5.0, 6.0],
+            [7.0, 8.0, 9.0],
         ]
     )
     B = np.array(
         [
-            [1., 2.],
-            [3., 4.],
-            [5., 6.],
+            [1.0, 2.0],
+            [3.0, 4.0],
+            [5.0, 6.0],
         ]
     )
     C_res = np.array(
         [
-            [22.,  28.],
-            [49.,  64.],
-            [76., 100.],
+            [22.0, 28.0],
+            [49.0, 64.0],
+            [76.0, 100.0],
         ]
     )
     C = matmul(A, B, block_size=32)

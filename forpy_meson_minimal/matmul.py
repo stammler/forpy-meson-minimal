@@ -2,7 +2,6 @@ from forpy_meson_minimal.fortran import arithmetics
 
 
 def matmul(A, B, block_size=None):
-
     # Check for loop blocking
     if block_size is not None:
         if type(block_size) is not int:

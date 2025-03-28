@@ -30,6 +30,6 @@ for block_size in block_sizes:
     print(f"# Running with block_size = {block_size:d} ...")
     t_start = default_timer()
     C = forpy.matmul(A, B, block_size=block_size)
-    print(f"  - elapsed time: {default_timer()-t_start:.2f} s")
+    print(f"  - elapsed time: {default_timer() - t_start:.2f} s")
 
 print()
