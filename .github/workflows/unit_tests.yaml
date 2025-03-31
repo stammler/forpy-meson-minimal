@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
       - name: Running unit tests
         run: |
-          pytest -k "not parallel or both"
+          pytest -k "not parallel or any"
 
   build_parallel:
     runs-on: ${{ matrix.os }}
@@ -72,5 +72,5 @@ jobs:
         continue-on-error: true
       - name: Running unit tests
         run: |
-          pytest -k "parallel or both"
+          pytest -k "parallel or any"
 

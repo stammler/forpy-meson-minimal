@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 
 
-def test_matmul_input_block_size_both():
+def test_matmul_input_block_size_any():
     # Tests for correct catches of incorrect block sizes
     A = np.empty((1))
     B = np.empty((1, 2))
@@ -15,7 +15,7 @@ def test_matmul_input_block_size_both():
         matmul(A, B, block_size=block_size)
 
 
-def test_matmul_input_shapes_both():
+def test_matmul_input_shapes_any():
     # Tests for correct catches of incorrect input shapes
     A = np.empty((1))
     B = np.empty((1, 2))
@@ -31,7 +31,7 @@ def test_matmul_input_shapes_both():
         matmul(A, B)
 
 
-def test_matmul_shape_mismatch_both():
+def test_matmul_shape_mismatch_any():
     # Tests for correct catch of dimension mismatch in inputs
     A = np.empty((1, 2))
     B = np.empty((1, 2))
@@ -39,7 +39,7 @@ def test_matmul_shape_mismatch_both():
         matmul(A, B)
 
 
-def test_matrix_vector_multiplication_both():
+def test_matrix_vector_multiplication_any():
     # Tests matrix-vector multiplication
     A = np.array(
         [
@@ -57,7 +57,7 @@ def test_matrix_vector_multiplication_both():
     assert np.allclose(C, C_res)
 
 
-def test_matrix_matrix_multiplication_both():
+def test_matrix_matrix_multiplication_any():
     # Tests matrix-matrix multiplication
     A = np.array(
         [
@@ -87,7 +87,7 @@ def test_matrix_matrix_multiplication_both():
     assert np.allclose(C, C_res)
 
 
-def test_matrix_vector_multiplication_blocked_both():
+def test_matrix_vector_multiplication_blocked_any():
     # Tests matrix-vector multiplication with loop blocking
     A = np.array(
         [
@@ -105,7 +105,7 @@ def test_matrix_vector_multiplication_blocked_both():
     assert np.allclose(C, C_res)
 
 
-def test_matrix_matrix_multiplication_blocked_both():
+def test_matrix_matrix_multiplication_blocked_any():
     # Tests matrix-matrix multiplication with loop blocking
     A = np.array(
         [
