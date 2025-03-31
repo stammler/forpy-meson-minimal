@@ -9,13 +9,14 @@ project(
 )
 add_languages('fortran')  # Adding Fortran to languages
 
-# Setting up dependencies
-omp_dep = dependency('openmp', required: true)  # OpenMP dependencies
+# Setting up OpenMP dependency
+# Do not raise error if OpenMP is not available
+omp_dep = dependency('openmp', required : false)
 
 # Python setup
 py_mod = import('python')
-py = py_mod.find_installation(pure: false)      # Python executable
-py_dep = py.dependency()                        # Python dependencies
+py = py_mod.find_installation(pure : false) # Python executable
+py_dep = py.dependency()                    # Python dependencies
 
 # NumPy include directory
 incdir_numpy = run_command(

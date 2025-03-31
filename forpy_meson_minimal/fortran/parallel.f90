@@ -2,7 +2,7 @@
 
 module parallel
 
-    use omp_lib
+    !$ use omp_lib
 
     implicit none
 
@@ -24,8 +24,9 @@ module parallel
 
             logical, intent(out) :: flag
 
+            flag = .false.
             !$OMP PARALLEL
-            flag = omp_in_parallel()
+            !$ flag = omp_in_parallel()
             !$OMP END PARALLEL
 
         end subroutine in_parallel_true
@@ -45,7 +46,11 @@ module parallel
 
             integer, intent(in) :: N
 
-            N_threads = min(N, omp_get_max_threads())
+            integer :: N_max = 1
+
+            !$ N_max = omp_get_max_threads()
+
+            N_threads = min(N, N_max)
 
         end subroutine set_num_threads
 
@@ -56,7 +61,10 @@ module parallel
 
             implicit none
 
-            N_threads = omp_get_max_threads()
+            integer :: N_max = 1
+            !$ N_max = omp_get_max_threads()
+
+            N_threads = N_max
 
         end subroutine init
 
