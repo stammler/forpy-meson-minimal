@@ -2,7 +2,7 @@
 project(
   'forpy_meson_minimal',  # Name of project
   'c',                    # Default language
-  version : '0.0.1',      # Project version
+  version : '1.0.0',      # Project version
   default_options : [     # Default options
     'optimization=3',     # Optimization level
   ]
@@ -10,8 +10,14 @@ project(
 add_languages('fortran')  # Adding Fortran to languages
 
 # Setting up OpenMP dependency
-# Do not raise error if OpenMP is not available
-omp_dep = dependency('openmp', required : false)
+# User can deactivate compilation with OpenMP. Default is true.
+use_openmp = get_option('openmp')
+if use_openmp
+  # Do not raise error if OpenMP is not available
+  omp_dep = dependency('openmp', required : false)
+else
+  omp_dep = []
+endif
 
 # Python setup
 py_mod = import('python')
