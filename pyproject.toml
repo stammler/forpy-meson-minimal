@@ -5,7 +5,7 @@ requires = ["meson-python", "numpy"]
 [project]
 name = "forpy_meson_minimal"
 description = "Minimum working example of a Python project utilizing compiled Fortran functions using the Meson build system. The minimum working example includes parallelization with OpenMP."
-version = "1.0.0"
+version = "1.0.1"
 
 dependencies = ["numpy", "pytest", "pytest-cov"]
 
