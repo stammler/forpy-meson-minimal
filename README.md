@@ -1,26 +1,42 @@
 # Fortran-Python-Meson Minimal
 
-Minimum working example of a Python project utilizing compiled Fortran functions using the Meson build system. This minimum working example includes parallelization with OpenMP.
+Minimum working example of a Python project utilizing compiled Fortran functions using the Meson build system. This minimum working example includes optional parallelization with OpenMP.
 
 ## Installation
 
-To install the package run
+To install the package with OpenMP routines run
 
 ```{.bash}
 pip install .
 ```
 
-in the base directory. The repository contains unit tests, which can be invoked by running
+in the base directory. To install the package without OpenMP parallelization run
 
 ```{.bash}
-pytest
+pip install . --config-settings=setup-args="-Dopenmp=false"
+```
+
+The `openmp` option is by default `true`.
+
+## Tests
+
+The repository contains unit tests, which can be invoked by running `pytest`. If the package has been installed using OpenMP routines, the unit tests can be executed with:
+
+```{.bash}
+pytest -k "parallel or any"
 ```
 
 in the base directory. If all unit tests pass the installation was successfull and parallelization with OpenMP is available.
 
+If the package has been installed without OpenMP parallelization run the unit tests with:
+
+```{.bash}
+pytest -k "not parallel or any"
+```
+
 ## Usage
 
-The package compute the matrix-vector multiplication
+The package computes the matrix-vector multiplication
 
 $
 \vec{c} = \mathcal{A} \cdot \vec{b}
@@ -78,7 +94,7 @@ C = forpy.matmul(A, B, block_size=block_size)
 
 ## Examples
 
-The repository contains two examples in the `examples/` directory. One runs timed test problems with different numbers of threads without loop blocking:
+The repository contains two examples in the `examples/` directory. One runs timed test problems with different numbers of threads (works only in the parallel installation) without loop blocking:
 
 ```
 python timing_threads.py

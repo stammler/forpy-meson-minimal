@@ -2,7 +2,7 @@
 project(
   'forpy_meson_minimal',  # Name of project
   'c',                    # Default language
-  version : '1.0.0',      # Project version
+  version : '1.0.1',      # Project version
   default_options : [     # Default options
     'optimization=3',     # Optimization level
   ]

@@ -11,4 +11,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Optional compilation with OpenMP. To install wihtout OpenMP use  
 `pip install . --config-settings=setup-args="-Dopenmp=false"`.  
-The option `openmp` is `true` by default.
+The `openmp` option is `true` by default.
