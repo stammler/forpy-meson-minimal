@@ -10,6 +10,7 @@ add_languages('fortran')  # Adding Fortran to languages
 
 # Setting up OpenMP dependency
 # User can deactivate compilation with OpenMP. Default is true.
+# The option has to be described in 'meson_options.txt' first.
 use_openmp = get_option('openmp')
 if use_openmp
   # Do not raise error if OpenMP is not available
